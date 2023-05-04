@@ -10,7 +10,7 @@ def test_helloFastApi():
 
 
 def test_isPrime():
-    assert IsPrime(3) == False
+    assert IsPrime(4) == False
 
 
 def test_fibonacci():

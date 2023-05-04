@@ -9,7 +9,16 @@ def Hello():
 
 @app.get('/isPrime/{numero}')
 def IsPrime(numero: int):
-    return True
+    if numero <= 0 :
+        return False
+    elif numero == 1:
+        return True
+    else: 
+        for i in range(2, numero+1):
+            if numero%i == 0 and i<numero:
+                return False
+            elif i == numero:
+                return True
 
 @app.get('/fibonacci')
 def Fibonacci(posicion: int):
