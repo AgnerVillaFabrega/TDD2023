@@ -14,5 +14,5 @@ def test_isPrime():
 
 
 def test_fibonacci():
-    assert Fibonacci(2) == 2
+    assert Fibonacci(3) == {"Valor": 3}
 

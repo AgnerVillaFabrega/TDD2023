@@ -20,6 +20,19 @@ def IsPrime(numero: int):
             elif i == numero:
                 return True
 
-@app.get('/fibonacci')
-def Fibonacci(posicion: int):
-    return 2
+@app.get('/fibonacci/{position}')
+def Fibonacci(position: int):
+    current_position = 1
+    future_position  = 1
+    count = 1
+    if position <= 0:
+        return {"Numero":0}
+    
+    while count <= position:
+        value_position = current_position + future_position
+        current_position = future_position
+        future_position = value_position
+        count+= 1
+    
+    return{"Valor": current_position}
+    
