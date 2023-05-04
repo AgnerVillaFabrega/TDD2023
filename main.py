@@ -8,7 +8,7 @@ def Hello():
     return "Hello FastApi"
 
 @app.get('/isPrime/{numero}')
-def IsPrime(numero: int):
+async def isPrime(numero: int):
     if numero <= 0 :
         return False
     elif numero == 1:
@@ -20,13 +20,14 @@ def IsPrime(numero: int):
             elif i == numero:
                 return True
 
+
 @app.get('/fibonacci/{position}')
-def Fibonacci(position: int):
+def fibonacci(position: int):
     current_position = 1
     future_position  = 1
     count = 1
     if position <= 0:
-        return {"Numero":0}
+        return {"Valor":0}
     
     while count <= position:
         value_position = current_position + future_position

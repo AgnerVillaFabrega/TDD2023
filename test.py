@@ -1,18 +1,21 @@
 import pytest
-from main import Hello
-from main import IsPrime
-from main import Fibonacci
+from starlette.testclient import TestClient
+from main import app
 
+client = TestClient(app)
 
-
-def test_helloFastApi():
-    assert Hello() == "Hello FastApi"
+# def test_helloFastApi():
+#     assert Hello() == "Hello FastApi"
 
 
 def test_isPrime():
-    assert IsPrime(4) == False
+    response = client.get('/isPrime/59')
+    assert response.status_code == 200
+    assert response.json() == True
 
 
 def test_fibonacci():
-    assert Fibonacci(3) == {"Valor": 3}
+    response = client.get('/fibonacci/12')
+    assert response.status_code == 200
+    assert response.json() == {"Valor":233}
 
