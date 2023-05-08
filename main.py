@@ -8,7 +8,7 @@ def Hello():
     return "Hello FastApi"
 
 @app.get('/isPrime/{numero}')
-async def isPrime(numero: int):
+def isPrime(numero: int):
     if numero <= 0 :
         return False
     elif numero == 1:
